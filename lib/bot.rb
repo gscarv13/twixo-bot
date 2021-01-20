@@ -6,13 +6,13 @@ class Bot
 
   Telegram::Bot::Client.run(@token) do |bot|
     bot.listen do |message|
-      case messege.text
+      case message.text
       when '/start'
         bot.api.send_message(
           chat_id: message.chat.id, text: "Welcome, #{message.from.first_name}! I am Twixo the news bot.
-           I will bring the top 7 articles on four different categories, /bitcoin, /tech, /wallstreet or
-           /business. To begin /start to run the bot, and choose one of the options.
-            To stop, please run /stop at any time."
+          I will bring the top 7 articles on four different categories, /bitcoin, /tech, /wallstreet or/business.
+          To begin /start to run the bot, and choose one of the options.
+          To stop, please run /stop at any time."
         )
 
       when '/stop'
