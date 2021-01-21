@@ -15,4 +15,10 @@ class Source
     "apiKey=#{NEWS_API}"
     @url
   end
+
+  def retrieve_json
+    uri = URI(@url) 
+    res = Net::HTTP.get(uri)
+    JSON.parse(res)
+  end
 end
