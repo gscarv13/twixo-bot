@@ -26,13 +26,16 @@ class Bot
       when '/wired'
         bot.api.send_message(chat_id: message.chat.id, text: @source.output_message('wired'), date: message.date)
 
-      when '/tech'
+      when '/techcrunch'
         bot.api.send_message(chat_id: message.chat.id, text: 'tech works', date: message.date)
 
-      when '/business'
+      when '/theverge'
         bot.api.send_message(chat_id: message.chat.id, text: 'business works', date: message.date)
 
-      when '/wallstreet'
+      when '/tnw'
+        bot.api.send_message(chat_id: message.chat.id, text: 'wallstreet works', date: message.date)
+
+      when '/techradar'
         bot.api.send_message(chat_id: message.chat.id, text: 'wallstreet works', date: message.date)
 
       else
