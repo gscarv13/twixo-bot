@@ -25,4 +25,15 @@ class Source
   def filter_json(json)
     json['articles']
   end
+
+  def display_headlines(headings)
+    message = []
+    loops = headings.length
+
+    loops.times do |index|
+      message += [headings[index]['title'], headings[index]['url'], "\n"]
+    end
+
+    message.join(" \n ")
+  end
 end
