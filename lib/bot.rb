@@ -1,8 +1,11 @@
 require 'telegram/bot'
+require 'dotenv'
 require_relative 'source'
 
+Dotenv.load('token_bot.env')
+
 class Bot
-  @token = '1446566008:AAGmBzXPVGFvOmxoy146geEsZM9DO-IhqGI'
+  @token = ENV['TOKEN_BOT']
 
   Telegram::Bot::Client.run(@token) do |bot|
     bot.listen do |message|
