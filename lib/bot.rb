@@ -6,6 +6,7 @@ Dotenv.load('token.env')
 
 class Bot
   @token = ENV['BOT']
+  @source = Source.new
 
   Telegram::Bot::Client.run(@token) do |bot|
     bot.listen do |message|
@@ -27,16 +28,16 @@ class Bot
         bot.api.send_message(chat_id: message.chat.id, text: @source.output_message('wired'), date: message.date)
 
       when '/techcrunch'
-        bot.api.send_message(chat_id: message.chat.id, text: 'tech works', date: message.date)
+        bot.api.send_message(chat_id: message.chat.id, text: @source.output_message('techcrunch'), date: message.date)
 
       when '/theverge'
-        bot.api.send_message(chat_id: message.chat.id, text: 'business works', date: message.date)
+        bot.api.send_message(chat_id: message.chat.id, text: @source.output_message('the-verge'), date: message.date)
 
       when '/tnw'
-        bot.api.send_message(chat_id: message.chat.id, text: 'wallstreet works', date: message.date)
+        bot.api.send_message(chat_id: message.chat.id, text: @source.output_message('the-next-web'), date: message.date)
 
       when '/techradar'
-        bot.api.send_message(chat_id: message.chat.id, text: 'wallstreet works', date: message.date)
+        bot.api.send_message(chat_id: message.chat.id, text: @source.output_message('techradar'), date: message.date)
 
       else
         bot.api.send_message(
