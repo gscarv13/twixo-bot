@@ -37,7 +37,7 @@ class News
     message.join(" \n ")
   end
 
-  def output_message(source)
+  def output(source)
     define_url(source)
     json = retrieve_json
     filter = parse_json(json)
