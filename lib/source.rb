@@ -18,12 +18,12 @@ class Source
 
   def retrieve_json
     uri = URI(@url)
-    res = Net::HTTP.get(uri)
-    JSON.parse(res)
+    Net::HTTP.get(uri)
   end
 
-  def filter_json(json)
-    json['articles']
+  def parse_json(res)
+    hash = JSON.parse(res)
+    hash['articles']
   end
 
   def create_message(headings)
@@ -40,7 +40,7 @@ class Source
   def output_message(source)
     define_url(source)
     json = retrieve_json
-    filter = filter_json(json)
+    filter = parse_json(json)
     create_message(filter)
   end
 end
