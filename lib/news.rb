@@ -5,7 +5,7 @@ require 'dotenv'
 
 Dotenv.load('token.env')
 
-class Source
+class News
   NEWS_API = ENV['SOURCE']
   @url = nil
 

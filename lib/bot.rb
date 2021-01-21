@@ -1,12 +1,12 @@
 require 'telegram/bot'
 require 'dotenv'
-require_relative 'source'
+require_relative 'news'
 
 Dotenv.load('token.env')
 
 class Bot
   @token = ENV['BOT']
-  @source = Source.new
+  @source = News.new
 
   Telegram::Bot::Client.run(@token) do |bot|
     bot.listen do |message|
