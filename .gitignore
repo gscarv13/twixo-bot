@@ -1,3 +1,4 @@
+Gemfile.lock
 temp.rb
-token_bot.env
-token_source.env
+token.env
+token2.env
