@@ -23,8 +23,8 @@ class Bot
           chat_id: message.chat.id, text: "See you soon, #{message.from.first_name}", date: message.date
         )
 
-      when '/bitcoin'
-        bot.api.send_message(chat_id: message.chat.id, text: 'bitcoin works', date: message.date)
+      when '/wired'
+        bot.api.send_message(chat_id: message.chat.id, text: @source.output_message('wired'), date: message.date)
 
       when '/tech'
         bot.api.send_message(chat_id: message.chat.id, text: 'tech works', date: message.date)
