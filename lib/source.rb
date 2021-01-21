@@ -26,7 +26,7 @@ class Source
     json['articles']
   end
 
-  def display_headlines(headings)
+  def create_message(headings)
     message = []
     loops = headings.length
 
@@ -35,5 +35,12 @@ class Source
     end
 
     message.join(" \n ")
+  end
+
+  def output_message(source)
+    define_url(source)
+    json = retrieve_json
+    filter = filter_json(json)
+    create_message(filter)
   end
 end
