@@ -6,17 +6,19 @@ Dotenv.load('token.env')
 
 class Bot
   @token = ENV['BOT']
-  @source = News.new
+  @src = News.new
+  @cmd = '================================================'\
+              "\n That's it! I'm ready for the next command 🚀"
 
   Telegram::Bot::Client.run(@token) do |bot|
     bot.listen do |message|
       case message.text
       when '/start'
         bot.api.send_message(
-          chat_id: message.chat.id, text: "Welcome, #{message.from.first_name}! I am Twixo the technology news bot."\
-          'I will bring the top headlines from the following sources, /wired, /techcrunch, /theverge, /tnw or /techradar.'\
-          'To begin /start to run the bot, and choose one of the options.'\
-          'To stop, please run /stop at any time.'
+          chat_id: message.chat.id, text: "Welcome, #{message.from.first_name}! 👋 I am Twixo the technology"\
+          'news bot 🤖. I can bring the top 📰 headlines from /wired, /techcrunch, /theverge, /tnw or /techradar'\
+          "\n To begin pick up one of the options."\
+          "\n To stop, please run /stop at any time."
         )
 
       when '/stop'
@@ -25,19 +27,19 @@ class Bot
         )
 
       when '/wired'
-        bot.api.send_message(chat_id: message.chat.id, text: @source.output_message('wired'), date: message.date)
+        bot.api.send_message(chat_id: message.chat.id, text: @src.output('wired') + @cmd, date: message.date)
 
       when '/techcrunch'
-        bot.api.send_message(chat_id: message.chat.id, text: @source.output_message('techcrunch'), date: message.date)
+        bot.api.send_message(chat_id: message.chat.id, text: @src.output('techcrunch') + @cmd, date: message.date)
 
       when '/theverge'
-        bot.api.send_message(chat_id: message.chat.id, text: @source.output_message('the-verge'), date: message.date)
+        bot.api.send_message(chat_id: message.chat.id, text: @src.output('the-verge') + @cmd, date: message.date)
 
       when '/tnw'
-        bot.api.send_message(chat_id: message.chat.id, text: @source.output_message('the-next-web'), date: message.date)
+        bot.api.send_message(chat_id: message.chat.id, text: @src.output('the-next-web') + @cmd, date: message.date)
 
       when '/techradar'
-        bot.api.send_message(chat_id: message.chat.id, text: @source.output_message('techradar'), date: message.date)
+        bot.api.send_message(chat_id: message.chat.id, text: @src.output('techradar') + @cmd, date: message.date)
 
       else
         bot.api.send_message(
