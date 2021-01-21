@@ -12,10 +12,10 @@ class Bot
       case message.text
       when '/start'
         bot.api.send_message(
-          chat_id: message.chat.id, text: "Welcome, #{message.from.first_name}! I am Twixo the news bot.
-          I will bring the top 7 articles on four different categories, /bitcoin, /tech, /wallstreet or/business.
-          To begin /start to run the bot, and choose one of the options.
-          To stop, please run /stop at any time."
+          chat_id: message.chat.id, text: "Welcome, #{message.from.first_name}! I am Twixo the technology news bot."\
+          'I will bring the top 7 articles from the following sources, /wired, /techcrunch, /theverge, /tnw or /techradar.'\
+          'To begin /start to run the bot, and choose one of the options.'\
+          'To stop, please run /stop at any time.'
         )
 
       when '/stop'
