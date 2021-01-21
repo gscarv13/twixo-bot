@@ -42,7 +42,7 @@ class Bot
       else
         bot.api.send_message(
           chat_id: message.chat.id, text: "I haven't learned that yet hehe.
-          Please enter one of the following: /start,  /stop , /bitcoin, tech, /wallstreet or /business"
+          Please enter one of the following: /start,  /stop , /wired, /techcrunch, /theverge, /tnw or /techradar"
         )
       end
     end
