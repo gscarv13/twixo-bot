@@ -2,16 +2,17 @@ require 'telegram/bot'
 require 'net/http'
 require 'json'
 require 'dotenv'
-# require_relative 'bot'
 
-Dotenv.load('token_source.env')
+Dotenv.load('token.env')
 
 class Source
-  attr_reader :listing
+  NEWS_API = ENV['SOURCE']
+  @url = nil
 
-  NEWS_API = ENV['TOKEN_SOURCE']
-
-  def initialize
-    @listing = nil
+  def define_url(topic)
+    @url = 'http://newsapi.org/v2/top-headlines?'\
+    "sources=#{topic}&"\
+    "apiKey=#{NEWS_API}"
+    @url
   end
 end
