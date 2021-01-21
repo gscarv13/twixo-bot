@@ -17,8 +17,12 @@ class Source
   end
 
   def retrieve_json
-    uri = URI(@url) 
+    uri = URI(@url)
     res = Net::HTTP.get(uri)
     JSON.parse(res)
+  end
+
+  def filter_json(json)
+    json['articles']
   end
 end
