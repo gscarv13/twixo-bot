@@ -40,7 +40,7 @@ class News
   def output(source)
     define_url(source)
     json = retrieve_json
-    filter = parse_json(json)
-    create_message(filter)
+    array = parse_json(json)
+    create_message(array)
   end
 end
