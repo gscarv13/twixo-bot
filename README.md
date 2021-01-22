@@ -48,6 +48,11 @@ $ bundle install
 $ ruby bin/main.rb
 ```
 
+## Interact With The Bot
+
+Once the bot is running you can type `/start` to see the bot options.
+Enter one of the source options and the bot will send the top news on the chat
+
 ## Running RSpec
 
 First, Install RSpec with gem command in the terminal
@@ -64,7 +69,7 @@ To run the tests will be necessary to add your `NEWS_API` to the test file.
 ```ruby
 NEWS_API = 'ADD_NEWS_API_KEY_HERE'
 ```
-- Finally, enter `rspec` from the root directory
+- Finally, enter `rspec` from the root directory.
 
 ## Authors
 
