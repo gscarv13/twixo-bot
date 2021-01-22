@@ -9,6 +9,15 @@ class News
   NEWS_API = ENV['SOURCE']
   @url = nil
 
+  def output(source)
+    define_url(source)
+    json = retrieve_json
+    array = parse_json(json)
+    create_message(array)
+  end
+
+  private
+
   def define_url(topic)
     @url = 'http://newsapi.org/v2/top-headlines?'\
     "sources=#{topic}&"\
@@ -37,10 +46,5 @@ class News
     message.join(" \n ")
   end
 
-  def output(source)
-    define_url(source)
-    json = retrieve_json
-    array = parse_json(json)
-    create_message(array)
-  end
+
 end
