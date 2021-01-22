@@ -12,7 +12,9 @@ class News
   def output(source)
     define_url(source)
     json = retrieve_json
-    array = parse_json(json)
+    array = parse_json(json, nil)
+    return array if array.nil?
+
     create_message(array)
   end
 
@@ -20,8 +22,8 @@ class News
 
   def define_url(topic)
     @url = 'http://newsapi.org/v2/top-headlines?'\
-    "sources=#{topic}&"\
-    "apiKey=#{NEWS_API}"
+           "sources=#{topic}&"\
+           "apiKey=#{NEWS_API}"
     @url
   end
 
@@ -30,8 +32,10 @@ class News
     Net::HTTP.get(uri)
   end
 
-  def parse_json(res)
+  def parse_json(res, status)
     hash = JSON.parse(res)
+    return status if hash['articles'].empty?
+
     hash['articles']
   end
 
@@ -45,6 +49,4 @@ class News
 
     message.join(" \n ")
   end
-
-
 end
