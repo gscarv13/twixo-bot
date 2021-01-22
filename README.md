@@ -35,7 +35,7 @@ $ bundle install
 ```
 - Open the `lib/news.rb` file and change the line 9:
  ```ruby
-  NEWS_API = 'ADD_NEWS_API_HERE'
+  NEWS_API = 'ADD_NEWS_API_KEY_HERE'
  ```
 - Open the `lib/bot.rb` file and change the line 9:
  ```ruby
