@@ -3,7 +3,7 @@ require 'dotenv'
 
 Dotenv.load('token.env')
 
-API = ENV['SOURCE']
+NEWS_API = ENV['SOURCE']
 
 describe News do
   # Variables
