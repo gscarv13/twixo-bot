@@ -23,6 +23,11 @@ Visit the live version on the link above.
 
 ## Getting Started
 
+#### Get Twixo
+- Visit [here](http://t.me/TwixoBot) to start using Twixo
+
+#### Run Your Own Bot Locally
+
 - Install ruby language on your machine [here](https://www.ruby-lang.org/en/downloads/)
 - Create a Telegram account [here](https://web.telegram.org/#/login) 
 - Create a Telegram bot [here](https://t.me/botfather) Click on 'Send Messege' and enter `/start`, then `/newbot` and follow the instructions
