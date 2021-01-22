@@ -5,14 +5,12 @@ require_relative 'news'
 Dotenv.load('token.env')
 
 class Bot
-  puts 'BipBop initializing....'
   @token = ENV['BOT']
   @src = News.new
   @cmd = '================================================'\
           "\n That's it! I'm ready for the next command 🚀"
 
   Telegram::Bot::Client.run(@token) do |bot|
-    puts "\n I'm ready, plase head to our telegram chat. Hit CTRL + Z to stop me."
     bot.listen do |message|
       case message.text
       when '/start'
