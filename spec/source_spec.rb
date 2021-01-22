@@ -3,8 +3,6 @@ require 'dotenv'
 
 Dotenv.load('token.env')
 
-NEWS_API = ENV['SOURCE']
-
 describe News do
   # Variables
   let(:news) { News.new }

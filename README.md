@@ -11,6 +11,8 @@ Twixo is a Telegram bot that can give you updates on the top latest technology n
 - Ruby
 - Telegram Bot API
 - News API
+- RSpec
+- Rubocop
 
 <!-- ## Live Demo
 
@@ -25,7 +27,7 @@ Visit the live version on the link above.
 - Create a Telegram account [here](https://web.telegram.org/#/login) 
 - Create a Telegram bot [here](https://t.me/botfather) Click on 'Send Messege' and enter `/start`, then `/newbot` and follow the instructions
 - Save Token, it will used in the next steps.
-- Create an account at [newsapi.org](https://newsapi.org/) and save the API code.
+- Create an account at [newsapi.org](https://newsapi.org/) and save the API key.
 
 - Use `git clone https://github.com/gscarv13/twixo-bot.git`
 - Move to the directory where the project was cloned to. 
@@ -45,6 +47,24 @@ $ bundle install
 ```terminal
 $ ruby bin/main.rb
 ```
+
+## Running RSpec
+
+First, Install RSpec with gem command in the terminal
+```terminal
+$ gem install rspec
+```
+Or install with bundle (Gemfile already included)
+```terminal
+$ bundle install
+```
+To run the tests will be necessary to add your `NEWS_API` to the test file.
+- Move to the spec folder
+- Open `source_spec.rb` in your editor of preference, and edit line 6
+```ruby
+NEWS_API = 'ADD_NEWS_API_KEY_HERE'
+```
+- Finally, enter `rspec` from the root directory
 
 ## Authors
 
