@@ -44,7 +44,7 @@ $ bundle install
  ```ruby
   NEWS_API = 'ADD_NEWS_API_KEY_HERE'
  ```
-- Open the `lib/bot.rb` file and change the line 9:
+- Open the `lib/bot.rb` file and change the line 8:
  ```ruby
   @token = 'ADD_BOT_TOKEN_HERE'
  ```
@@ -56,6 +56,15 @@ file using the `dotenv` gem.
 BOT='ADD_BOT_TOKEN_HERE'
 SOURCE='ADD_NEWS_API_KEY_HERE'
 ```
+- Open the `lib/news.rb` file and change the line 9 to:
+ ```ruby
+  NEWS_API = ENV['SOURCE']
+ ```
+- Open the `lib/bot.rb` file and change the line 8 to:
+ ```ruby
+  @token = ENV['BOT']
+ ```
+
 - Finally, run your bot from the root directory with the command
 ```terminal
 $ ruby bin/main.rb
