@@ -5,7 +5,7 @@ require_relative 'news'
 Dotenv.load('token.env')
 
 class Bot
-  @token = ENV['BOT']
+  @token = '1446566008:AAGmBzXPVGFvOmxoy146geEsZM9DO-IhqGI'
   @src = News.new
   @cmd = '================================================'\
           "\n That's it! I'm ready for the next command 🚀"
