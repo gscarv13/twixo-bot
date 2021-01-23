@@ -17,7 +17,12 @@ class Bot
         bot.api.send_message(
           chat_id: message.chat.id, text: "Welcome, #{message.from.first_name}! 👋 I am Twixo the technology"\
           'news bot 🤖. I can bring the top 📰 headlines from /wired, /techcrunch, /theverge, /tnw or /techradar'\
-          "\n To begin pick up one of the options."\
+          "\n To begin pick up one of the options. Use /stop when you're done"\
+        )
+
+      when '/stop'
+        bot.api.send_message(
+          chat_id: message.chat.id, text: "See you soon, #{message.from.first_name}", date: message.date
         )
 
       when '/wired'
