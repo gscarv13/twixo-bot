@@ -6,7 +6,7 @@ require 'dotenv'
 Dotenv.load('token.env')
 
 class News
-  NEWS_API = ENV['SOURCE']
+  NEWS_API = '91123f2f581c4262b24017bab9da983b'.freeze
   @url = nil
 
   def output(source)
