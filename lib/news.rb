@@ -6,7 +6,7 @@ require 'dotenv'
 Dotenv.load('token.env')
 
 class News
-  NEWS_API = {{secrets.SOURCE}}
+  NEWS_API = secrets.SOURCE
   @url = nil
 
   def output(source)
