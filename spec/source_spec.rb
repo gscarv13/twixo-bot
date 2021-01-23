@@ -3,6 +3,9 @@ require 'dotenv'
 
 Dotenv.load('token.env')
 
+# PLEASE add the News API https://newsapi.org to 
+# token.env before running the tests
+
 describe News do
   # Variables
   let(:news) { News.new }
