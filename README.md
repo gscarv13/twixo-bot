@@ -4,7 +4,7 @@
 
 ![demo](./assets/demo.gif)
 
-Twixo is a Telegram bot that can give you updates on the top latest technology news from Techcrunch, TheNextWeb, The Verge, Techradar and Wired.
+Twixo is a Telegram bot that can give you updates on the top latest technology news from Techcrunch, TheNextWeb, The Verge, Techradar, and Wired.
 
 ## Built With
 
@@ -30,8 +30,8 @@ Visit the live version on the link above.
 
 - Install ruby language on your machine [here](https://www.ruby-lang.org/en/downloads/)
 - Create a Telegram account [here](https://web.telegram.org/#/login) 
-- Create a Telegram bot [here](https://t.me/botfather) Click on 'Send Messege' and enter `/start`, then `/newbot` and follow the instructions
-- Save Token, it will used in the next steps.
+- Create a Telegram bot [here](https://t.me/botfather) Click on 'Send Message' and enter `/start`, then `/newbot` and follow the instructions
+- Save the Token, it will be used in the next steps.
 - Create an account at [newsapi.org](https://newsapi.org/) and save the API key.
 
 - Use `git clone https://github.com/gscarv13/twixo-bot.git`
@@ -48,7 +48,15 @@ $ bundle install
  ```ruby
   @token = 'ADD_BOT_TOKEN_HERE'
  ```
-- Finally run your bot with from the root directory with the command
+Alternatively, it is possible to add both the `NEWS_API` and `BOT_TOKEN` to an environment variable
+file using the `dotenv` gem.
+- Create a `token.env` file
+- Add the following lines
+```
+BOT='ADD_BOT_TOKEN_HERE'
+SOURCE='ADD_NEWS_API_KEY_HERE'
+```
+- Finally, run your bot from the root directory with the command
 ```terminal
 $ ruby bin/main.rb
 ```
@@ -68,13 +76,10 @@ Or install with bundle (Gemfile already included)
 ```terminal
 $ bundle install
 ```
-To run the tests will be necessary to add your `NEWS_API` to the test file.
-- Move to the spec folder
-- Open `source_spec.rb` in your editor of preference, and edit line 6
-```ruby
-NEWS_API = 'ADD_NEWS_API_KEY_HERE'
-```
-- Finally, enter `rspec` from the root directory.
+To run the tests will be necessary to add your `NEWS_API` to the `lib/news.rb` file
+or to the `.env` file as mentioned above
+
+- Enter `rspec` from the root directory.
 
 ## Authors
 
@@ -92,7 +97,7 @@ Feel free to leave your suggestion on the [issues page](https://github.com/gscar
 
 ## Show your support
 
-Give a ⭐️ if you like this project!
+Give an ⭐️ if you like this project!
 
 ## 📝 License
 
