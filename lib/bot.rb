@@ -15,7 +15,6 @@ class Bot < Telegram::Bot::Client
   @cmd = '================================================'\
           "\n That's it! I'm ready for the next command 🚀"
   # @print = @obj.print_news(@src)
-
   Telegram::Bot::Client.run(@token) do |bot|
     bot.listen do |message|
       case message.text
@@ -32,10 +31,7 @@ class Bot < Telegram::Bot::Client
         )
 
       when '/wired'
-        array = @obj.output('wired')
-        array.length.times do |i|
-          bot.api.send_message(chat_id: message.chat.id, text: array[i].join("\n"), date: message.date)
-        end
+        print_loop(bot, 'wired')
         bot.api.send_message(chat_id: message.chat.id, text: @cmd, date: message.date)
 
       when '/techcrunch'
@@ -60,10 +56,7 @@ class Bot < Telegram::Bot::Client
         bot.api.send_message(chat_id: message.chat.id, text: @cmd, date: message.date)
 
       when '/techradar'
-        array = @obj.output('techradar')
-        array.length.times do |i|
-          bot.api.send_message(chat_id: message.chat.id, text: array[i].join("\n"), date: message.date)
-        end
+        @obj.loops('techradar')
         bot.api.send_message(chat_id: message.chat.id, text: @cmd, date: message.date)
 
       else
@@ -72,6 +65,13 @@ class Bot < Telegram::Bot::Client
           'Please enter one of the following: /start,  /stop , /wired, /techcrunch, /theverge, /tnw or /techradar'
         )
       end
+    end
+  end
+
+  def self.print_loop(bot, source)
+    array = @obj.output(source)
+    array.length.times do |i|
+      bot.api.send_message(chat_id: message.chat.id, text: array[i].join("\n"), date: message.date)
     end
   end
 end
