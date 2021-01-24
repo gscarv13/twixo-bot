@@ -44,9 +44,13 @@ class News
     loops = headings.length
 
     loops.times do |index|
-      message += [headings[index]['title'], headings[index]['url'], "\n"]
+      message += [[
+        headings[index]['title'], "\n",
+        "#{headings[index]['description']} \n",
+        "➫ Details here: #{headings[index]['url']}", "\n"
+      ]]
     end
 
-    message.join(" \n ")
+    message
   end
 end
