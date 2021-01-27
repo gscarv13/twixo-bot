@@ -6,7 +6,7 @@ require 'dotenv'
 Dotenv.load('token.env')
 
 class News
-  NEWS_API = '91123f2f581c4262b24017bab9da983b'.freeze
+  NEWS_API = 'ADD_NEWS_API_KEY_HERE'
   @url = nil
 
   def output(source)
@@ -16,6 +16,14 @@ class News
     return array if array.nil?
 
     create_message(array)
+  end
+
+  def print_details(bot, message, source, cmd)
+    array = output(source)
+    array.length.times do |i|
+      bot.api.send_message(chat_id: message.chat.id, text: array[i].join("\n"), date: message.date)
+    end
+    bot.api.send_message(chat_id: message.chat.id, text: cmd, date: message.date)
   end
 
   private
@@ -44,9 +52,13 @@ class News
     loops = headings.length
 
     loops.times do |index|
-      message += [headings[index]['title'], headings[index]['url'], "\n"]
+      message += [[
+        headings[index]['title'], "\n",
+        "#{headings[index]['description']} \n",
+        "➫ Details here: #{headings[index]['url']}", "\n"
+      ]]
     end
 
-    message.join(" \n ")
+    message
   end
 end
