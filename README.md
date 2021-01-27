@@ -2,7 +2,7 @@
 
 # Twixo - The Technology News Bot
 
-![demo](./assets/demo.gif)
+![demo](./assets/demo2.gif)
 
 Twixo is a Telegram bot that can give you updates on the top latest technology news from Techcrunch, TheNextWeb, The Verge, Techradar, and Wired.
 
