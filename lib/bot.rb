@@ -4,12 +4,15 @@ require_relative 'news'
 
 Dotenv.load('token.env')
 
-class Bot
-  @token = '1446566008:AAGmBzXPVGFvOmxoy146geEsZM9DO-IhqGI'
-  @src = News.new
-  @cmd = '================================================'\
-          "\n That's it! I'm ready for the next command 🚀"
+class Bot < Telegram::Bot::Client
+  system 'echo BipBop initializing...'
+  system 'echo To terminate the process press CTRL + Z'
 
+  @token = 'ADD_BOT_TOKEN_HERE'
+  @obj = News.new
+  @cmd = '====================================='\
+          "\n That's it! I'm ready for the next command 🚀"
+  # @print = @obj.print_news(@src)
   Telegram::Bot::Client.run(@token) do |bot|
     bot.listen do |message|
       case message.text
@@ -26,19 +29,19 @@ class Bot
         )
 
       when '/wired'
-        bot.api.send_message(chat_id: message.chat.id, text: @src.output('wired') + @cmd, date: message.date)
+        @obj.print_details(bot, message, 'wired', @cmd)
 
       when '/techcrunch'
-        bot.api.send_message(chat_id: message.chat.id, text: @src.output('techcrunch') + @cmd, date: message.date)
+        @obj.print_details(bot, message, 'techcrunch', @cmd)
 
       when '/theverge'
-        bot.api.send_message(chat_id: message.chat.id, text: @src.output('the-verge') + @cmd, date: message.date)
+        @obj.print_details(bot, message, 'the-verge', @cmd)
 
       when '/tnw'
-        bot.api.send_message(chat_id: message.chat.id, text: @src.output('the-next-web') + @cmd, date: message.date)
+        @obj.print_details(bot, message, 'the-next-web', @cmd)
 
       when '/techradar'
-        bot.api.send_message(chat_id: message.chat.id, text: @src.output('techradar') + @cmd, date: message.date)
+        @obj.print_details(bot, message, 'techradar', @cmd)
 
       else
         bot.api.send_message(
