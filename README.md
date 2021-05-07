@@ -26,7 +26,7 @@ Visit the live version on the link above.
 #### Get Twixo
 - Visit [here](http://t.me/TwixoBot) to start using Twixo
 
-#### Run Your Own Bot Locally
+#### Run Your Bot Locally
 
 - Install ruby language on your machine [here](https://www.ruby-lang.org/en/downloads/)
 - Create a Telegram account [here](https://web.telegram.org/#/login) 
